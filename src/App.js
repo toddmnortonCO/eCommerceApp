@@ -1,12 +1,12 @@
 // import logo from './logo.svg';
+import React from 'react';
 import './App.scss';
-import Header from './Components/Header/Header';
+import routes from './routes';
 
 function App() {
   return (
     <div className="App">
-      <Header className="Header" />
-      
+      {routes}
     </div>
   );
 }
