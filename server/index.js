@@ -2,11 +2,10 @@ require('dotenv').config();
 const express = require('express'),
     massive = require('massive'),
     session = require('express-session'),
-    authController = require('./controllers/authController'),
-    exerciseController = require('./controllers/exerciseControllers'),
-    commentController = require('./controllers/commentController'),
-    stripeController = require('./controllers/stripeController'),
-    nodemailerController = require('./controllers/nodemailerController'),
+    authController = require('./Controllers/authController'),
+    inventoryController = require('./Controllers/InventoryController'),
+    shoppingCartController = require('./Controllers/ShoppingCartController'),
+    stripeController = require('./Controllers/StripeController'),
     { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
     app = express();
 
@@ -36,14 +35,10 @@ app.post('/api/login', authController.login);
 app.get('/api/logout', authController.logout);
 
 // inventory endpoints
-app.get("/api/exercises/:user_id", inventoryController.getInventory);
-app.delete("/api/exercises/:exercise_id", inventoryController.deleteInventory);
+app.get("/api/invetory/", inventoryController.getInventory);
 
-// comment endpoints
-app.get("/api/comments/:user_id", commentController.getComments);
-app.post("/api/comments", commentController.addComment);
-app.put("/api/comments/:exercise_comment_id", commentController.editComment);
-app.delete("/api/comments/:exercise_comment_id", commentController.deleteComment);
+// cart endpoints
+app.get('/api/cart/', shoppingCartController.getCart);
 
 // stripe endpoint
 app.post('/api/payment', stripeController.completePayment);
