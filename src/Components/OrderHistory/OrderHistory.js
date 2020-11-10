@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 
-class Dashboard extends Component {
+class OrderHistory extends Component {
     render() {
         return (
             <div>
-                Dashboard
+                Order History
             </div>
         )
     }
 }
 
-export default Dashboard;
+export default OrderHistory;

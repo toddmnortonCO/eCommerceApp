@@ -38,7 +38,11 @@ class Landing extends Component {
   };
 
   render() {
-    return <div>Hello</div>;
+    return (
+    <div>
+      Hello this is the landing page
+    </div>
+    );
   }
 }
 

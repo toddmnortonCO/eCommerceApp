@@ -34,14 +34,10 @@ app.use(express.static(__dirname + '/../build'))
 app.post('/api/register', authController.register);
 app.post('/api/login', authController.login);
 app.get('/api/logout', authController.logout);
-app.post('/api/email', authController.email);
 
-
-// exercise endpoints
-app.get("/api/exercises/:user_id", exerciseController.getExercises);
-app.post("/api/exercises", exerciseController.addExercise); 
-app.put("/api/exercises/:exercise_id", exerciseController.editSummary); 
-app.delete("/api/exercises/:exercise_id", exerciseController.deleteExercise);
+// inventory endpoints
+app.get("/api/exercises/:user_id", inventoryController.getInventory);
+app.delete("/api/exercises/:exercise_id", inventoryController.deleteInventory);
 
 // comment endpoints
 app.get("/api/comments/:user_id", commentController.getComments);
@@ -51,6 +47,3 @@ app.delete("/api/comments/:exercise_comment_id", commentController.deleteComment
 
 // stripe endpoint
 app.post('/api/payment', stripeController.completePayment);
-
-// nodemailer endpoint
-app.post('/api/email', nodemailerController.email);

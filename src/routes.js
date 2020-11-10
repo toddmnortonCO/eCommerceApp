@@ -2,8 +2,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Dashboard from './Components/Dashboard/Dashboard.js';
 import Landing from '../src/Components/Landing/Landing';
-import CustomerService from './Components/CustomerService/CustomerService.js';
 import Checkout from '../src/Components/Checkout/Checkout';
+import CustomerService from '../src/Components/CustomerService/CustomerService'
 
 
 export default (    
