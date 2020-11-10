@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express'),
     massive = require('massive'),
     session = require('express-session'),
-    authController = require('./Controllers/authController'),
+    authController = require('./Controllers/AuthController'),
     inventoryController = require('./Controllers/InventoryController'),
     shoppingCartController = require('./Controllers/ShoppingCartController'),
     stripeController = require('./Controllers/StripeController'),
@@ -11,7 +11,7 @@ const express = require('express'),
 
 app.use(express.json());
 app.use(session({
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     secret: SESSION_SECRET,
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
@@ -23,7 +23,7 @@ massive({
 }).then((db) => {
   app.set("db", db);
   console.log("db connected");
-  app.listen(SERVER_PORT, () => console.log(`server lifting on ${SERVER_PORT}`));
+  app.listen(SERVER_PORT, () => console.log(`server shopping on ${SERVER_PORT}`));
 });
 
 // hosting 

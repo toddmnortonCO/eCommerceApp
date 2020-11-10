@@ -2,13 +2,20 @@
   "name": "e-commerce-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3131",
+  "main": "server/index.js",
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.11.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.3",
     "dotenv": "^8.2.0",
+    "express-session": "^1.17.1",
+    "massive": "^6.6.1",
     "nodemon": "^2.0.6",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
@@ -19,6 +26,7 @@
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.0.5",
     "sass": "^1.29.0",
+    "stripe": "^8.121.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

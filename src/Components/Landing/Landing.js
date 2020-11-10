@@ -26,15 +26,14 @@ class Landing extends Component {
         .post("/api/register", { email, password })
         .then((res) => {
           this.props.getUser(res.data);
-          this.props.history.push("/dashboard");
+          this.props.history.push("/dashboard/");
         })
         .catch((err) => console.log(err));
     } 
   
-
   handleLogin = (e) => {
     e.preventDefault();
-    const { email, password } = this.state;
+    const { email, password } = this.state
       axios
       .post("/api/login", { email, password })
       .then((res) => {

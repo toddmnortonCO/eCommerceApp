@@ -15,7 +15,7 @@ class Dashboard extends Component {
         }
     }
   componentDidMount() {
-    this.getInvetory();
+    this.getInventory();
     if (!this.props.user.email) {
       this.props.history.push("/");
     }
