@@ -38,7 +38,10 @@ app.get('/api/logout', authController.logout);
 app.get("/api/invetory/", inventoryController.getInventory);
 
 // cart endpoints
-app.get('/api/cart/', shoppingCartController.getCart);
+app.get('/api/cart/', shoppingCartController.getShoppingCart);
+app.post('/api/addItem', shoppingCartController.addItem);
+app.put('/api/addReview', shoppingCartController.addReview);
+app.delete('/api/removeItem', shoppingCartController.removeItem);
 
 // stripe endpoint
 app.post('/api/payment', stripeController.completePayment);
