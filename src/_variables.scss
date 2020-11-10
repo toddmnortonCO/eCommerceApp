@@ -5,7 +5,12 @@
 // Color system
 //
 
-$default-font: Verdana;
+@font-face {
+    font-family: myFirstFont;
+    src: url('https://fonts.googleapis.com/css?family=Actor')
+}
+
+$default-font: myFirstFont;
 $default-font-weight: bold;
 
 $white:    #fff !default;

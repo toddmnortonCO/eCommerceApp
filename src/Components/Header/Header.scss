@@ -1,28 +1,50 @@
-@import '../../variables';
+@import "../../variables";
 
 .navbar {
-    background-color: black;
+  background-color: black;
 }
 
 .flex-container {
-    display: flexbox;
-    margin-inline-start: 10px;
-    justify-content: space-between;
+  display: flexbox;
+  margin-inline-start: 10px;
+  justify-content: space-between;
 }
 
 .link {
-    text-emphasis-color: $orange;
-    font-size: 14px;
-    color: $orange;
-    text-decoration: none;
-    a:visited, a:hover, a:active, a:focus {
-        color: $orange !important;
-        font-weight: bolder !important;
-        text-decoration: none !important;
-        outline: none !important;
-     }
+  text-emphasis-color: $orange;
+  font-size: 14px;
+  color: $orange;
+  text-decoration: none;
+  a:visited,
+  a:hover,
+  a:active,
+  a:focus {
+    color: $orange !important;
+    font-weight: bolder !important;
+    text-decoration: none !important;
+    outline: none !important;
+  }
 }
 
 .button {
-    padding-left: $input-btn-padding-x;
+  padding-left: $input-btn-padding-x;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

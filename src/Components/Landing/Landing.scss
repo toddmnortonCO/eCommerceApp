@@ -1,0 +1,35 @@
+@import "../../variables";
+
+@font-face {
+    font-family: myFirstFont;
+    src: url('https://fonts.googleapis.com/css?family=Actor')
+}
+
+// .body {
+//     background: url(https://web-design-and-tech-tips.com/wp-content/uploads/2018/01/pexels-photo-92905-1024x682.jpeg)   
+// }
+
+.H1 {
+    font: $default-font;
+    font-weight: $default-font-weight;
+}
+
+.login-button {
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    color: $black;
+    width: 100px;
+}
+
+.register-button {
+    font-size: 16px;
+    border-radius: 12px;
+    border: $black;
+    width: 100px;
+    border: none;
+}
+
+.password-input {
+    -webkit-text-security: disc;
+}
