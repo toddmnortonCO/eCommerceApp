@@ -36,11 +36,11 @@ app.get('/api/logout', authController.logout);
 
 // inventory endpoints
 app.get("/api/invetory/", inventoryController.getInventory);
+app.put("/api/inventory/", inventoryController.addReview);
 
 // cart endpoints
 app.get('/api/cart/', shoppingCartController.getShoppingCart);
 app.post('/api/addItem', shoppingCartController.addItem);
-app.put('/api/addReview', shoppingCartController.addReview);
 app.delete('/api/removeItem', shoppingCartController.removeItem);
 
 // stripe endpoint
