@@ -1,1 +1,28 @@
- 
+@import '../../variables';
+
+.navbar {
+    background-color: black;
+}
+
+.flex-container {
+    display: flexbox;
+    margin-inline-start: 10px;
+    justify-content: space-between;
+}
+
+.link {
+    text-emphasis-color: $orange;
+    font-size: 14px;
+    color: $orange;
+    text-decoration: none;
+    a:visited, a:hover, a:active, a:focus {
+        color: $orange !important;
+        font-weight: bolder !important;
+        text-decoration: none !important;
+        outline: none !important;
+     }
+}
+
+.button {
+    padding-left: $input-btn-padding-x;
+}

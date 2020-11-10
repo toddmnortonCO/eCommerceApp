@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import stripe from '../../config';
 import axios from 'axios';
+import Header from '../Header/Header';
 import './Checkout.scss';
 
 class Checkout extends Component {
@@ -18,6 +19,7 @@ class Checkout extends Component {
   render(){
     return (
       <div className="App">
+        <Header />
         <StripeCheckout 
           label='Proceed to Checkout'
           token={this.onToken}

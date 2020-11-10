@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUser } from "../../redux/reducer";
 import "./Landing.scss";
+import Header from '../Header/Header';
 
 class Landing extends Component {
   constructor() {
@@ -40,6 +41,7 @@ class Landing extends Component {
   render() {
     return (
     <div>
+      <Header />
       Hello this is the landing page
     </div>
     );
