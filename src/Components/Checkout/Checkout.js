@@ -41,6 +41,14 @@ class Checkout extends Component {
       .then((res) => this.setState({ stock: res.data }))
       .catch((err) => console.log(err));
   };
+
+  removeItem = (product_id) => {
+    console.log(product_id)
+    axios
+      .delete(`/api/shoppingCart/${product_id}`)
+      .then(() => { this.getShoppingCart()})
+      .catch((err) => console.log(err))
+  }
    
   render(){
     console.log(this.state.stock);
@@ -48,6 +56,12 @@ class Checkout extends Component {
       <div className="inventory-container">
         <p className="item">{shoppingCart.product_name}</p>
         <p>{shoppingCart.product_price}</p>
+        <button
+        className='button'
+        onClick={() => this.removeItem(shoppingCart.product_id)}
+        >
+        Remove from Cart
+        </button>
       </div>
     ));
 

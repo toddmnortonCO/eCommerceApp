@@ -22,7 +22,7 @@ module.exports = {
         const {product_id} = req.params,
             db = req.app.get('db');
 
-        db.shopping_cart.remove_item([product_id])
+        db.shoppingCart.remove_item([product_id])
         .then(shoppingCart => res.status(200).send(shoppingCart))
         .catch(err => res.status(500).send(err));
     }

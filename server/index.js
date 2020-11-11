@@ -41,7 +41,7 @@ app.put("/api/inventory/:product_id", inventoryController.addReview);
 // cart endpoints
 app.get('/api/shoppingCart', shoppingCartController.getShoppingCart);
 app.post('/api/shoppingCart', shoppingCartController.addItemToCart);
-app.delete('/api/shoppingCart', shoppingCartController.removeItem);
+app.delete('/api/shoppingCart/:product_id', shoppingCartController.removeItem);
 
 // stripe endpoint
 app.post('/api/payment', stripeController.completePayment);

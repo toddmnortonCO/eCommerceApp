@@ -5,7 +5,7 @@ create table if not exists users (
 );
 
 create table if not exists inventory (
-    product_id serial primary key,
+    product_id serial primary key UNIQUE,
     product_name varchar(100) NOT NULL UNIQUE,
     product_description varchar(500) NOT NULL,
     product_price decimal(6, 2),
