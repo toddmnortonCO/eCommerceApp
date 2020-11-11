@@ -32,12 +32,12 @@ class Dashboard extends Component {
       .catch((err) => console.log(err));
   };
 
-  addToCart = () => {
+  addToCart = (inventory) => {
     axios
       .post("/api/shoppingCart/", {
-        product_id: this.props.product_id,
-        product_name: this.props.product_name,
-        product_price: this.props.product_price,
+        product_id: inventory.product_id,
+        product_name: inventory.product_name,
+        product_price: inventory.product_price,
       })
       .then((res) => this.setState({ shopping_cart: res.data }))
       .catch((err) => console.log(err));
@@ -75,7 +75,7 @@ class Dashboard extends Component {
         </button> <br />
         <button
           className="button"
-          onClick={() => this.addToCart(inventory.product_id)}
+          onClick={() => this.addToCart(inventory)}
         >
           Add To Cart
         </button>
