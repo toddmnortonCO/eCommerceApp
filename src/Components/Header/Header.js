@@ -8,11 +8,8 @@ class Header extends Component {
       <div>
         <section className="navbar">
             <div className='ul'>
-            <Link className='link'
-                img="fa fa-home"
-            >
-                Home
-            </Link>
+            <Link className='link' img="fa fa-home" to='dashboard'> Home </Link>
+            <Link className='link' img="fa fa-home" to="checkout"> Checkout </Link>
             </div>
           <h3 className="h3">Todd's Computer Emporium</h3>
           <button className="logout-button">Log Out</button>

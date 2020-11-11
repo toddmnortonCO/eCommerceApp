@@ -89,7 +89,6 @@ class Dashboard extends Component {
         <section>
           <div>{mappedInventory}</div>
         </section>
-        <section>Render shopping cart here</section>
       </div>
     );
   }

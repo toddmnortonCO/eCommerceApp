@@ -3,6 +3,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import stripe from '../../config';
 import axios from 'axios';
 import Header from '../Header/Header';
+import { connect } from "react-redux";
 import './Checkout.scss';
 
 class Checkout extends Component {
@@ -16,6 +17,14 @@ class Checkout extends Component {
       productReview: "",
     }
   }
+
+  componentDidMount() {
+    this.getShoppingCart();
+    if (!this.props.user.email) {
+      this.props.history.push("/");
+    }
+  }
+
   onToken = async(token) => {
     token.card = void 0;
 
@@ -28,16 +37,25 @@ class Checkout extends Component {
 
   getShoppingCart = () => {
     axios
-      .get("/api/shoppingCart/")
+      .get(`/api/shoppingCart/`)
       .then((res) => this.setState({ stock: res.data }))
       .catch((err) => console.log(err));
   };
    
-
   render(){
+    const mappedShoppingCart = this.state.stock.map((shopping_cart) => (
+      <div className="inventory-container">
+        <p className="item">{shopping_cart.product_name}</p>
+        <p>{shopping_cart.product_price}</p>
+      </div>
+    ));
+
     return (
       <div className="App">
         <Header />
+        <section>
+          <div>{mappedShoppingCart}</div>
+        </section>
         <StripeCheckout 
           label='Proceed to Checkout'
           token={this.onToken}
@@ -51,4 +69,6 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout;
+const mapStateToProps = (reduxState) => reduxState;
+
+export default connect(mapStateToProps)(Checkout);
