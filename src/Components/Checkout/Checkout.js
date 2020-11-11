@@ -43,10 +43,11 @@ class Checkout extends Component {
   };
    
   render(){
-    const mappedShoppingCart = this.state.stock.map((shopping_cart) => (
+    console.log(this.state.stock);
+    const mappedShoppingCart = this.state.stock.map((shoppingCart) => (
       <div className="inventory-container">
-        <p className="item">{shopping_cart.product_name}</p>
-        <p>{shopping_cart.product_price}</p>
+        <p className="item">{shoppingCart.product_name}</p>
+        <p>{shoppingCart.product_price}</p>
       </div>
     ));
 

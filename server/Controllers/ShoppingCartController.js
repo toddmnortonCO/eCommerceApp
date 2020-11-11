@@ -1,9 +1,8 @@
 module.exports = {
     getShoppingCart: async (req, res) => {
-        const { user_id } = req.params,
-            db = req.app.get('db');
+        const db = req.app.get('db');
             
-        await db.shoppingCart.get_shopping_cart([user_id])
+        await db.shoppingCart.get_shopping_cart()
         .then((shoppingCart) => res.status(200).send(shoppingCart))
         .catch(err => console.log(err))
     },
