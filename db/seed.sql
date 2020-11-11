@@ -18,5 +18,4 @@ create table if not exists shopping_cart (
     product_id int references inventory(product_id),
     product_name varchar(100),
     product_price decimal(4, 2),
-    total_cost decimal(8, 2)
 );

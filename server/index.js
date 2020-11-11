@@ -27,7 +27,7 @@ massive({
 });
 
 // hosting 
-app.use(express.static(__dirname + '/../build')) 
+// app.use(express.static(__dirname + '/../build')) 
 
 // auth endpoints
 app.post('/api/register', authController.register);
@@ -35,13 +35,13 @@ app.post('/api/login', authController.login);
 app.get('/api/logout', authController.logout);
 
 // inventory endpoints
-app.get("/api/invetory/", inventoryController.getInventory);
-app.put("/api/inventory/", inventoryController.addReview);
+app.get("/api/inventory", inventoryController.getInventory);
+app.put("/api/inventory", inventoryController.addReview);
 
 // cart endpoints
-app.get('/api/cart/', shoppingCartController.getShoppingCart);
-app.post('/api/addItem', shoppingCartController.addItem);
-app.delete('/api/removeItem', shoppingCartController.removeItem);
+app.get('/api/shoppingCart', shoppingCartController.getShoppingCart);
+app.post('/api/shoppingCart', shoppingCartController.addItemToCart);
+app.delete('/api/shoppingCart', shoppingCartController.removeItem);
 
 // stripe endpoint
 app.post('/api/payment', stripeController.completePayment);

@@ -8,7 +8,7 @@ module.exports = {
         .catch(err => console.log(err))
     },
 
-    addItem: async (req, res) => {
+    addItemToCart: async (req, res) => {
         // need to add items from table-inventory to table-shoppingCart
         // use ID to get info from inventory table then push into shoppingCart
         const db = req.app.db('db');

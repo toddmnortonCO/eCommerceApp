@@ -1,0 +1,16 @@
+@import '../../variables';
+
+.inventory-container {
+    display: flex;
+    background: $lightgrey;
+    color: $black;
+
+    .item {
+        font-weight: bold;
+        
+    }
+
+    .button {
+
+    }
+}
