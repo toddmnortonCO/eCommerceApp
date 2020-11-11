@@ -8,12 +8,17 @@ module.exports = {
     },
 
     addReview: async (req, res) => {
-        const {product_name, product_description, product_price} = req.params,
+        const {product_id} = req.params,
             {product_review} = req.body,
-            db = req.app.db('db');
+            db = req.app.get('db');
+        console.log(product_id, product_review)
 
-        await db.shoppingCart.add_review([product_name, product_description, product_price, product_review])
-        .then((inventory) => res.status(200).send(inventory, 'Review Added!'))
+        await db.inventory.add_review({product_id, product_review})
+        .then((inventory) => res.status(200).send(inventory))
         .catch(err => console.log(err))
     },
+
+    clearReview: async (req, res) => {
+        
+    }
 }

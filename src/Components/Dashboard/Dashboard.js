@@ -4,8 +4,8 @@ import Header from "../Header/Header";
 import { connect } from "react-redux";
 
 class Dashboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       stock: [],
       productName: "",
@@ -20,6 +20,10 @@ class Dashboard extends Component {
       this.props.history.push("/");
     }
   }
+  handleInput = (e, val) => {
+    console.log(e.target)
+    this.setState({[e.target.name]: val})
+  }
 
   getInventory = () => {
     axios
@@ -30,20 +34,49 @@ class Dashboard extends Component {
 
   addToCart = () => {
     axios
-      .post("/api/shoppingCart/")
+      .post("/api/shoppingCart/", {
+        product_id: this.props.product_id,
+        product_name: this.props.product_name,
+        product_price: this.props.product_price,
+      })
       .then((res) => this.setState({ shopping_cart: res.data }))
       .catch((err) => console.log(err));
   };
 
+  addReview = (product_id) => {
+    axios
+      .put(`/api/inventory/${product_id}`, {
+        product_review: this.state.productReview,
+      })
+      .then(() => {
+        this.getInventory();
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
-    console.log(this.state.stock)
+    console.log(this.state.stock);
     const mappedInventory = this.state.stock.map((inventory) => (
       <div className="inventory-container">
         <p className="item">{inventory.product_name}</p>
         <p>{inventory.product_description}</p>
         <p>{inventory.product_review}</p>
         <p>{inventory.product_price}</p>
-        <button className='button' onClick={() => this.addToCart(inventory.product_id)}>
+        <input 
+        placeholder="Enter Review"
+        onChange={(e) => this.handleInput(e, e.target.value)}
+        value={this.props.product_review}
+        name="productReview"
+        />
+        <button
+          className="button"
+          onClick={() => this.addReview(inventory.product_id)}
+        >Add Review
+        </button> <br />
+        <button
+          className="button"
+          onClick={() => this.addToCart(inventory.product_id)}
+        >
           Add To Cart
         </button>
         <br />

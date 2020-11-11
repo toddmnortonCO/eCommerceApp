@@ -36,7 +36,7 @@ app.get('/api/logout', authController.logout);
 
 // inventory endpoints
 app.get("/api/inventory", inventoryController.getInventory);
-app.put("/api/inventory", inventoryController.addReview);
+app.put("/api/inventory/:product_id", inventoryController.addReview);
 
 // cart endpoints
 app.get('/api/shoppingCart', shoppingCartController.getShoppingCart);

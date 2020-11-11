@@ -6,6 +6,16 @@ import Header from '../Header/Header';
 import './Checkout.scss';
 
 class Checkout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stock: [],
+      productName: "",
+      productDescription: "",
+      productPrice: "",
+      productReview: "",
+    }
+  }
   onToken = async(token) => {
     token.card = void 0;
 
@@ -15,6 +25,14 @@ class Checkout extends Component {
           })
           .catch(err => console.log(err))
   }
+
+  getShoppingCart = () => {
+    axios
+      .get("/api/shoppingCart/")
+      .then((res) => this.setState({ stock: res.data }))
+      .catch((err) => console.log(err));
+  };
+   
 
   render(){
     return (
