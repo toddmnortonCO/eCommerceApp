@@ -72,12 +72,10 @@ class Checkout extends Component {
           <div>{mappedShoppingCart}</div>
         </section>
         <StripeCheckout 
-          label='Proceed to Checkout'
+          label='Donate $1'
           token={this.onToken}
-          stripeKey={stripe.publicKey}
+          stripeKey={stripe.public_key}
           amount={100}
-          shippingAddress={true}
-          billingAddress={true}
           />
       </div>
     );
