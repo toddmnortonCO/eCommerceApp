@@ -1,17 +1,26 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { clearUser } from "../../redux/reducer";
 import "./Header.scss";
 
-class Header extends Component {
-  render() {
+const Header = props => {
+
+  const logout = () => {
+    props.clearUser();
+    props.history.push('/');      
+  };
+
     return (
       <div>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0"
         ></meta>
-        <section className="navbar">
+        <section className="navbar"
+        position='fixed'>
           <div className="ul">
+          <span title="Home">
             <Link className="link" to="dashboard">
               <img
               className="image"
@@ -19,17 +28,25 @@ class Header extends Component {
                 alt="Home"
               ></img>
             </Link>
+            </span>
+            <span title="Checkout">
             <Link className="link" img="fa fa-home" to="checkout">
-              {" "}
-              Checkout{" "}
+              <img
+              className="image"
+              onMouseOver="Checkout"
+              src="https://thumbs.dreamstime.com/b/money-bag-sign-icon-dark-background-money-bag-sign-icon-dark-background-simple-vector-icon-116960213.jpg"
+                alt="Checkout"
+                />
             </Link>
+            </span>
           </div>
           <h3 className="h3">Todd's Computer Emporium</h3>
-          <button className="logout-button">Log Out</button>
+          <button className="logout-button" onClick={logout}>Log Out</button>
         </section>
       </div>
     );
   }
-}
 
-export default Header;
+const mapStateToProps = (reduxState) => reduxState;
+
+export default connect(mapStateToProps, { clearUser })(withRouter(Header));
