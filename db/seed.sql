@@ -17,5 +17,5 @@ create table if not exists shopping_cart (
     order_id serial primary key,
     product_id int references inventory(product_id),
     product_name varchar(100),
-    product_price decimal(10, 2),
+    product_price int
 );

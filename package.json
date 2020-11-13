@@ -2,7 +2,7 @@
   "name": "e-commerce-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3131/",
+  "proxy": "http://localhost:4040/",
   "main": "server/index.js",
   "dependencies": {
     "@stripe/react-stripe-js": "^1.1.2",

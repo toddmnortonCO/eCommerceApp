@@ -26,7 +26,7 @@ class Landing extends Component {
         .post("/api/register", { email, password })
         .then((res) => {
           this.props.getUser(res.data);
-          this.props.history.push("/dashboard/");
+          this.props.history.push("/dashboard");
         })
         .catch((err) => console.log(err));
     } 
@@ -47,9 +47,9 @@ class Landing extends Component {
       return (
       <div className="body" >
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-        <h1>Welcome to Todd's Computer Emporium!</h1>
+        <h1>Todd's Computer Emporium!</h1>
         <br />
-        <h5 color='black'>Please Login to Shop</h5>
+        <h5 className='h5'>Please Login to Shop</h5>
         <input
           value={this.state.email}
           name='email'
@@ -58,7 +58,7 @@ class Landing extends Component {
           onChange={(e) => this.handleInput(e)}
         />
         <br />
-        <input
+                <input
           value={this.state.password}
           name="password"
           placeholder="Password"
@@ -67,7 +67,9 @@ class Landing extends Component {
           onChange={(e) => this.handleInput(e)}
         />        
         <br />
+        <br />
         <button className='login-button' onClick={this.handleLogin}>Login</button>
+        <br />
         <br />
         <button className='register-button' onClick={this.handleRegister}>Register</button>
       </div>
