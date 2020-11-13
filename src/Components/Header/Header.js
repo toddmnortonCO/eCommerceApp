@@ -29,6 +29,9 @@ const Header = props => {
               ></img>
             </Link>
             </span>
+            <span>
+              <Link className='link' to='customerservice'>Customer Service</Link>
+            </span>
             <span title="Checkout">
             <Link className="link" img="fa fa-home" to="checkout">
               <img
