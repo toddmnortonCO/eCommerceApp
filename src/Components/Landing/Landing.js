@@ -26,7 +26,7 @@ class Landing extends Component {
         .post("/api/register", { email, password })
         .then((res) => {
           this.props.getUser(res.data);
-          this.props.history.push("/dashboard");
+          this.props.history.push("/");
         })
         .catch((err) => console.log(err));
     } 
@@ -38,7 +38,7 @@ class Landing extends Component {
       .post("/api/login", { email, password })
       .then((res) => {
         this.props.getUser(res.data);
-        this.props.history.push("/dashboard");
+        this.props.history.push("/");
       })
       .catch((err) => console.log(err));
   };

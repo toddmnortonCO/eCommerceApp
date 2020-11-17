@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component, useState } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import stripe from '../../config';
 import axios from 'axios';
 import Header from '../Header/Header';
 import { connect } from "react-redux";
 import './Checkout.scss';
+
+
 
 class Checkout extends Component {
   constructor(props) {
@@ -25,14 +27,14 @@ class Checkout extends Component {
     }
   }
 
-  onToken = async(token) => {
+  onToken = async (token) => {
     token.card = void 0;
 
-    await axios.post('/api/payment', {token, amount: 100})
-          .then(() => {
-            alert('Payment Submitted')
-          })
-          .catch(err => console.log(err))
+    await axios.post('/api/payment', { token, amount: 100 })
+      .then(() => {
+        alert('Payment Submitted')
+      })
+      .catch(err => console.log(err))
   }
 
   getShoppingCart = () => {
@@ -46,21 +48,21 @@ class Checkout extends Component {
     console.log(product_id)
     axios
       .delete(`/api/shoppingCart/${product_id}`)
-      .then(() => { this.getShoppingCart()})
+      .then(() => { this.getShoppingCart() })
       .catch((err) => console.log(err))
   }
-   
-  render(){
+
+  render() {
     console.log(this.state.stock);
     const mappedShoppingCart = this.state.stock.map((shoppingCart) => (
       <div className="inventory-container">
         <p className="item">{shoppingCart.product_name}</p>
         <p>{shoppingCart.product_price}</p>
         <button
-        className='button'
-        onClick={() => this.removeItem(shoppingCart.product_id)}
+          className='button'
+          onClick={() => this.removeItem(shoppingCart.product_id)}
         >
-        Remove from Cart
+          Remove from Cart
         </button>
       </div>
     ));
@@ -72,12 +74,12 @@ class Checkout extends Component {
         <section>
           <div>{mappedShoppingCart}</div>
         </section>
-        <StripeCheckout 
+        <StripeCheckout
           label='Donate $1'
           token={this.onToken}
           stripeKey={stripe.public_key}
           amount={100}
-          />
+        />
       </div>
     );
   }
