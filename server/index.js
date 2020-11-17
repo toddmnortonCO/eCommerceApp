@@ -6,7 +6,7 @@ const express = require('express'),
     inventoryController = require('./Controllers/InventoryController'),
     shoppingCartController = require('./Controllers/ShoppingCartController'),
     stripeController = require('./Controllers/StripeController'),
-    sendGridController = require('./Controllers/SendGridController'),
+    // sendGridController = require('./Controllers/SendGridController'),
     { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
     app = express();
 
@@ -48,4 +48,4 @@ app.delete('/api/shoppingCart/:product_id', shoppingCartController.removeItem);
 app.post('/api/payment', stripeController.completePayment);
 
 // sendgrid endpoint
-app.post('/api/mail/send', sendGridController.sendMail);
+// app.post('/api/mail/send', sendGridController.sendMail);
