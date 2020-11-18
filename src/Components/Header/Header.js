@@ -14,7 +14,7 @@ const Header = props => {
     return (
       <div>
         <meta
-          name="viewport"
+          name="cover"
           content="width=device-width, initial-scale=1.0"
         ></meta>
         <section className="navbar"
