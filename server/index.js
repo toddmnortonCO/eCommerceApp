@@ -8,8 +8,8 @@ const express = require('express'),
     stripeController = require('./Controllers/StripeController'),
     // sendGridController = require('./Controllers/SendGridController'),
     { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
-    app = express(),
-    path = require('path');
+    // path = require('path'),
+    app = express();
 
 app.use(express.json());
 app.use(session({
