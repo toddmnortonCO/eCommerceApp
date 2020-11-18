@@ -30,9 +30,9 @@ massive({
 
 // hosting 
 app.use(express.static(__dirname + '/../build')); 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'));
-})
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../build/index.html'));
+// })
 
 // auth endpoints
 app.post('/api/register', authController.register);
