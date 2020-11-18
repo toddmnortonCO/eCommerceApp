@@ -8,7 +8,8 @@ const express = require('express'),
     stripeController = require('./Controllers/StripeController'),
     // sendGridController = require('./Controllers/SendGridController'),
     { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env,
-    app = express();
+    app = express(),
+    path = require('path');
 
 app.use(express.json());
 app.use(session({
@@ -28,7 +29,10 @@ massive({
 });
 
 // hosting 
-// app.use(express.static(__dirname + '/../build')) 
+app.use(express.static(__dirname + '/../build')); 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 // auth endpoints
 app.post('/api/register', authController.register);
