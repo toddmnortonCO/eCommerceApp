@@ -51,14 +51,16 @@ class Dashboard extends Component {
       .then(() => {
         this.getInventory();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
   };
 
   render() {
     console.log(this.state.stock);
     const mappedInventory = this.state.stock?.map((inventory) => (
       <div className="inventory-container">
-        <p className="item">{inventory.product_name}</p>
+        <br />
+        <br />
+        <h2 className="item">{inventory.product_name}</h2>
         <p>{inventory.product_description}</p>
         <p>{inventory.product_review}</p>
         <p>{inventory.product_price}</p>
@@ -70,7 +72,10 @@ class Dashboard extends Component {
         />
         <button
           className="button"
-          onClick={() => this.addReview(inventory.product_id)}
+          onClick={() => 
+            this.addReview(inventory.product_id)
+            
+          }
         >
           Add Review
         </button> <br />
