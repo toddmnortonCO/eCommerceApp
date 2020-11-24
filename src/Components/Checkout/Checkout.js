@@ -56,7 +56,7 @@ class Checkout extends Component {
     console.log(this.state.stock);
     const mappedShoppingCart = this.state.stock.map((shoppingCart) => (
       <div className="inventory-container">
-        <p className="item">{shoppingCart.product_name}</p>
+        <h2 className="item">{shoppingCart.product_name}</h2>
         <p>{shoppingCart.product_price}</p>
         <button
           className='button'
@@ -71,9 +71,12 @@ class Checkout extends Component {
       <div className="App">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <Header />
+        <br />
+        <br />
         <section>
           <div>{mappedShoppingCart}</div>
         </section>
+        <br />
         <StripeCheckout
           label='Donate $1'
           token={this.onToken}
